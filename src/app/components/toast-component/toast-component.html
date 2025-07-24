@@ -1,0 +1,22 @@
+<div class="toasts-wrapper">
+  @for (toast of (toasts$ | async); track toast.id) {
+  <div
+    class="toast-container"
+    [ngClass]="toast.type"
+    [@toastAnimation]
+    cdkDrag
+    cdkDragLockAxis="x"
+    (cdkDragMoved)="onDragMoved($event)"
+    (cdkDragEnded)="onDragEnd($event, toast.id)"
+  >
+    <p>{{ toast.message }}</p>
+    <app-custom-button
+      [type]="toast.type === 'success' ? 'primary' : 'outline'"
+      size="small"
+      (click)="handleClose(toast.id)"
+    >
+      undo</app-custom-button
+    >
+  </div>
+  }
+</div>

@@ -1,0 +1,28 @@
+.toasts-wrapper {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.8rem 1rem;
+  min-width: 15rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  color: var(--foreground);
+  user-select: none;
+}
+
+.toast-container.error {
+  background-color: var(--destructive);
+  color: white;
+}

@@ -1,0 +1,17 @@
+<div class="main-layout">
+  <div class="navbar">
+    <div class="navbar-content">
+      <app-custom-button
+        (click)="handleThemeChange()"
+        [type]="'outline'"
+        [iconButton]="true"
+        [tooltipText]="'Toggle'"
+        ><lucide-angular
+          size="15"
+          [img]="isDarkTheme ? sunIcon : moonIcon"
+        ></lucide-angular
+      ></app-custom-button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

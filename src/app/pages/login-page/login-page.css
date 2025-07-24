@@ -1,0 +1,23 @@
+.container {
+  padding-top: 3.5rem; /* Adjust for fixed navbar height */
+  height: calc(100vh - 3.5rem);
+  width: 100%;
+  color: var(--foreground);
+  background-color: var(--background);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--card);
+  height: 30rem;
+  width: 25em;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

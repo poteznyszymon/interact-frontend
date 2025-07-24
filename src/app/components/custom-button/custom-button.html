@@ -1,0 +1,22 @@
+<button
+  [disabled]="disabled || loading"
+  [ngClass]="buttonClass"
+  (mouseenter)="tooltipVisible = true"
+  (mouseleave)="tooltipVisible = false"
+>
+  <div class="btn-content">
+    <lucide-angular
+      *ngIf="loading"
+      size="18"
+      [img]="loadingIcon"
+    ></lucide-angular>
+    <ng-content></ng-content>
+  </div>
+  <div
+    class="tooltip-container"
+    *ngIf="tooltipText"
+    [@tooltipAnimation]="tooltipVisible ? 'visible' : 'hidden'"
+  >
+    {{ tooltipText }}
+  </div>
+</button>
