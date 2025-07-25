@@ -8,8 +8,13 @@
   box-sizing: border-box;
 }
 
-*:focus,
-*:focus-visible {
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0px;
+}
+
+input:focus,
+input:focus-visible {
   box-shadow: 0 0 0 3px var(--secondary);
 }
 

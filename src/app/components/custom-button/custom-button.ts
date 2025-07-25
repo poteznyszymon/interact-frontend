@@ -38,7 +38,8 @@ import { LucideAngularModule, Loader2 } from 'lucide-angular';
   ],
 })
 export class CustomButton {
-  @Input() type: 'primary' | 'secondary' | 'outline' = 'primary';
+  @Input() type: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link' =
+    'primary';
   @Input() disabled = false;
   @Input() loading = false;
   @Input() iconButton = false;
@@ -52,6 +53,8 @@ export class CustomButton {
       'btn-primary': this.type === 'primary',
       'btn-secondary': this.type === 'secondary',
       'btn-outline': this.type === 'outline',
+      'btn-ghost': this.type === 'ghost',
+      'btn-link': this.type === 'link',
       'btn-icon': this.iconButton,
       'btn-small': this.size === 'small',
     };

@@ -12,10 +12,13 @@
 }
 
 .card {
-  height: 10rem;
-  max-width: 20rem;
+  max-width: 22rem;
   width: 100%;
   gap: 1rem;
   display: flex;
   flex-direction: column;
+}
+
+h2 {
+  font-weight: 500;
 }
