@@ -16,20 +16,30 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     trigger('toastAnimation', [
       transition(':enter', [
         style({ transform: 'translateX(100%)', opacity: 0 }),
-        animate('300ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
+        animate(
+          '300ms ease-out',
+          style({ transform: 'translateX(0)', opacity: 1 })
+        ),
       ]),
       transition(':leave', [
-        animate('300ms ease-in', style({ transform: 'translateX(100%)', opacity: 0 }))
+        animate(
+          '300ms ease-in',
+          style({ transform: 'translateX(100%)', opacity: 0 })
+        ),
       ]),
-    ])
-  ]
+    ]),
+  ],
 })
 export class ToastComponent {
+  toasts$: BehaviorSubject<Toast[]>;
+  totalToasts = 0;
 
-  toasts$: BehaviorSubject<Toast[]>
-  
   constructor(private toastService: ToastService) {
-    this.toasts$ = toastService.toasts$
+    this.toasts$ = toastService.toasts$;
+
+    this.toasts$.subscribe((toasts) => {
+      this.totalToasts = toasts.length;
+    });
   }
 
   handleClose(id: number) {
@@ -61,5 +71,15 @@ export class ToastComponent {
     }
   }
 
+  getScale(position: number): number {
+    if (this.totalToasts <= 1) return 1;
+    const relative = position / (this.totalToasts - 1);
+    return 0.8 + relative * 0.2;
+  }
 
+  getOpacity(position: number): number {
+    if (this.totalToasts <= 1) return 1;
+    const relative = position / (this.totalToasts - 1);
+    return 0.5 + relative * 0.5;
+  }
 }

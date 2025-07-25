@@ -1,0 +1,28 @@
+<div class="input-container">
+  <label *ngIf="labelText" [for]="labelText">{{ labelText }}</label>
+  <div class="input-wrapper">
+    <input
+      [id]="labelText"
+      [type]="locked() && passwordSwitch ? 'password' : 'text'"
+      [placeholder]="placeholder"
+      [ngClass]="{ switch: passwordSwitch }"
+    />
+    <app-custom-button
+      *ngIf="passwordSwitch"
+      style="
+        position: absolute;
+        top: 50%;
+        right: 0.5rem;
+        transform: translateY(-50%);
+      "
+      [type]="'outline'"
+      [iconButton]="true"
+      [size]="'small'"
+      (click)="handleLockChange()"
+      ><lucide-angular
+        [img]="!locked() ? lockOpenIcon : lockIcon"
+        size="10"
+      ></lucide-angular
+    ></app-custom-button>
+  </div>
+</div>

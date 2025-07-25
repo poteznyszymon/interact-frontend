@@ -1,10 +1,12 @@
 <div class="container">
   <div class="card">
-    <app-custom-button (click)="addToast('success')" [type]="'primary'"
-      >add toast</app-custom-button
-    >
-    <app-custom-button (click)="addToast('error')" [type]="'outline'"
-      >add toast</app-custom-button
-    >
+    <app-auth-provider-block></app-auth-provider-block>
+    <app-divider></app-divider>
+    <app-input-component labelText="Email"></app-input-component>
+    <app-input-component
+      labelText="Password"
+      [passwordSwitch]="true"
+    ></app-input-component>
+    <app-custom-button>Login</app-custom-button>
   </div>
 </div>

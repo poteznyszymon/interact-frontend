@@ -1,0 +1,8 @@
+<div class="badge-container" [ngClass]="badgeClass">
+  <lucide-angular
+    *ngIf="type === 'verified'"
+    size="12"
+    [img]="verifiedIcon"
+  ></lucide-angular>
+  <p>{{ text }}</p>
+</div>

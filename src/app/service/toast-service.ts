@@ -13,12 +13,16 @@ export class ToastService {
     const toast: Toast = {
       id: Date.now(),
       message,
-      type
+      type,
+      position: 0 // temp
     };
+
     if (this.toastList.length >= 5) {
       this.toastList.shift(); 
     }
+
     this.toastList.push(toast);
+    this.updatePositions();
     this.toasts$.next([...this.toastList]);
 
     interval(duration || 5000).subscribe(() => {
@@ -28,13 +32,21 @@ export class ToastService {
 
   remove(id: number) {
     this.toastList = this.toastList.filter((toast) => toast.id !== id);
+    this.updatePositions();
     this.toasts$.next([...this.toastList]);
   }
-  
+
+  private updatePositions() {
+    this.toastList.forEach((toast, index) => {
+      toast.position = index;
+    });
+  }
+
 }
 
 export interface Toast {
   id: number;
   message: string;
   type: 'success' | 'error';
+  position: number;
 }

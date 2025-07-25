@@ -1,0 +1,42 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+input {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius);
+  background-color: var(--card);
+  width: 100%;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  color: var(--foreground);
+}
+
+input:active,
+input:focus {
+  border: 1px solid var(--border);
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+input.switch {
+  padding-right: 2.3rem;
+}

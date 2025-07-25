@@ -8,6 +8,13 @@
     cdkDragLockAxis="x"
     (cdkDragMoved)="onDragMoved($event)"
     (cdkDragEnded)="onDragEnd($event, toast.id)"
+    [ngStyle]="{
+      position: 'absolute',
+      right: '0.1rem',
+      bottom: (totalToasts - 1 - toast.position) * 0.5  + 'rem',
+      scale: getScale(toast.position),
+
+    }"
   >
     <p>{{ toast.message }}</p>
     <app-custom-button
