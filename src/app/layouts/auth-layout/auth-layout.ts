@@ -1,17 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CustomButton } from '../../components/custom-button/custom-button';
-import { ThemeService } from '../../service/theme-service';
+import { ThemeService } from '../../service/theme/theme-service';
 import { Sun, LucideAngularModule, Moon } from 'lucide-angular';
 
 @Component({
-  selector: 'app-main-layout',
+  selector: 'app-auth-layout',
   imports: [RouterOutlet, CustomButton, LucideAngularModule],
-  templateUrl: './main-layout.html',
-  styleUrl: './main-layout.css'
+  templateUrl: './auth-layout.html',
+  styleUrl: './auth-layout.css',
 })
-export class MainLayout {
-  private themeService: ThemeService = inject(ThemeService)
+export class AuthLayout {
+  private themeService: ThemeService = inject(ThemeService);
 
   handleThemeChange(): void {
     this.themeService.toggleTheme();

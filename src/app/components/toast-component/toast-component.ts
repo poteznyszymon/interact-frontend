@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Toast, ToastService } from '../../service/toast-service';
 import { CommonModule } from '@angular/common';
 import { CustomButton } from '../custom-button/custom-button';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BehaviorSubject } from 'rxjs';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { Toast, ToastService } from '../../service/toast/toast-service';
 
 @Component({
   standalone: true,

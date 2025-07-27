@@ -1,17 +1,30 @@
 <div class="container">
-  <div class="card">
-    <h2>Login to you Interact account</h2>
+  <form class="card" [formGroup]="loginForm">
     <app-auth-provider-block></app-auth-provider-block>
     <app-divider></app-divider>
     <app-input-component
-      placeholder="Email"
-      labelText="Email"
+      formControlName="username"
+      placeholder="Username"
+      labelText="Username"
     ></app-input-component>
+    @if (username.invalid && username.touched) { @if
+    (username.errors?.['required']) {
+    <p class="form-error">Email is required</p>
+    } }
     <app-input-component
+      formControlName="password"
       placeholder="Password"
       labelText="Password"
       [passwordSwitch]="true"
     ></app-input-component>
-    <app-custom-button (click)="addToast('success')">Login</app-custom-button>
-  </div>
+    @if (password.invalid && password.touched) { @if
+    (password.errors?.['required']) {
+    <p class="form-error">Password is required</p>
+    } }
+    <app-custom-button
+      [loading]="(loginLoading$ | async) ?? false"
+      (click)="handleLogin($event)"
+      >Login</app-custom-button
+    >
+  </form>
 </div>

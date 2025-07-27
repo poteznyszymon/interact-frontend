@@ -1,0 +1,7 @@
+<div style="width: fit-content; padding: 1rem">
+  <app-custom-button
+    (click)="logout()"
+    [loading]="(logoutLoading$ | async) ?? false"
+    >logout</app-custom-button
+  >
+</div>

@@ -6,6 +6,8 @@
       [type]="locked() && passwordSwitch ? 'password' : 'text'"
       [placeholder]="placeholder"
       [ngClass]="{ switch: passwordSwitch }"
+      [disabled]="isDisabled"
+      (input)="handleInput($event)"
     />
     <app-custom-button
       *ngIf="passwordSwitch"
@@ -15,7 +17,7 @@
         right: 0.5rem;
         transform: translateY(-50%);
       "
-      [type]="'outline'"
+      [type]="'secondary'"
       [iconButton]="true"
       [size]="'small'"
       (click)="handleLockChange()"
