@@ -1,5 +1,9 @@
 <div class="container">
   <form class="card" [formGroup]="loginForm">
+    <div class="header">
+      <h3>Login to your account</h3>
+      <p>Enter your email below to login to your account</p>
+    </div>
     <app-auth-provider-block></app-auth-provider-block>
     <app-divider></app-divider>
     <app-input-component
@@ -9,7 +13,7 @@
     ></app-input-component>
     @if (username.invalid && username.touched) { @if
     (username.errors?.['required']) {
-    <p class="form-error">Email is required</p>
+    <p class="form-error">Username is required</p>
     } }
     <app-input-component
       formControlName="password"
@@ -26,5 +30,9 @@
       (click)="handleLogin($event)"
       >Login</app-custom-button
     >
+    <div class="bottom-prompt">
+      <p>Don't have an account?</p>
+      <a routerLink="/register">Sign up</a>
+    </div>
   </form>
 </div>

@@ -7,7 +7,7 @@
   user-select: none;
   display: flex;
   position: relative;
-  background-color: var(--background);
+  background-color: var(--card);
   color: var(--foreground);
 
   width: 100%;

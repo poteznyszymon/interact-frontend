@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth-service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -22,6 +22,7 @@ import { Router } from '@angular/router';
     Divider,
     ReactiveFormsModule,
     CommonModule,
+    RouterLink,
   ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
