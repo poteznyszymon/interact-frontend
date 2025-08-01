@@ -71,7 +71,7 @@ button.btn-ghost:hover:not(:disabled) {
 }
 
 button.btn-link {
-  background-color: var(--background);
+  background-color: transparent;
   color: var(--foreground);
 }
 
