@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { AuthService } from '../../service/auth/auth-service';
 import { Router } from '@angular/router';
 import { CustomButton } from '../../components/custom-button/custom-button';
@@ -14,10 +14,15 @@ export class HomePage {
   authService = inject(AuthService);
   router = inject(Router);
 
-  logoutLoading$ = this.authService.getLogoutLoading();
+  user$ = this.authService.getCurrentUser();
 
-  async logout() {
-    await this.authService.logout();
-    this.router.navigate(['/login']);
+  @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
+
+  openDialog() {
+    this.dialog.nativeElement.showModal();
+  }
+
+  closeDialog() {
+    this.dialog.nativeElement.close();
   }
 }

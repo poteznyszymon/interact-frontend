@@ -11,16 +11,10 @@ export const unauthGuard: CanActivateFn = async () => {
     authService.isUserAuthenticated()
   );
 
-  console.log('UnauthGuard: isAuthenticated =', isAuthenticated);
-
   if (!isAuthenticated) {
-    console.log(
-      'UnauthGuard: User is NOT authenticated. Allowing access to /login.'
-    );
     return true;
   }
 
-  console.log('UnauthGuard: User IS authenticated. Redirecting to /.');
   router.navigate(['/']);
   return false;
 };

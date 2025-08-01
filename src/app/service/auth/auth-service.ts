@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, firstValueFrom, map, Observable } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, last, map, Observable } from 'rxjs';
 import { environment } from '../../../environments/environments';
 import { ToastService } from '../toast/toast-service';
 import { User } from '../../models/user';
@@ -11,6 +11,7 @@ import { User } from '../../models/user';
 export class AuthService {
   private loginLoading = new BehaviorSubject<boolean>(false);
   private logoutLoading = new BehaviorSubject<boolean>(false);
+  private registerLoading = new BehaviorSubject<boolean>(false);
   private currentUser = new BehaviorSubject<User | null>(null);
 
   constructor(
@@ -48,6 +49,37 @@ export class AuthService {
     }
   }
 
+  public async register(
+    username: string,
+    firstName: string,
+    lastName: String,
+    email: string,
+    password: string
+  ): Promise<void> {
+    try {
+      this.registerLoading.next(true);
+      await firstValueFrom(
+        this.httpClient.post(
+          `${environment.baseApiUrl}/auth/register`,
+          {
+            username,
+            firstName,
+            lastName,
+            email,
+            password,
+          },
+          { headers: this.headers, withCredentials: true }
+        )
+      );
+      await this.fetchCurrentUser();
+    } catch (error) {
+      console.log(error);
+      this.toastService.add('Something went wrong', 'error');
+    } finally {
+      this.registerLoading.next(false);
+    }
+  }
+
   public async logout(): Promise<void> {
     try {
       this.logoutLoading.next(true);
@@ -79,7 +111,6 @@ export class AuthService {
       );
       this.currentUser.next(user);
     } catch (error: any) {
-      console.log(error);
       this.currentUser.next(null);
       /*
       if (error instanceof HttpErrorResponse) {
@@ -93,6 +124,10 @@ export class AuthService {
 
   public getLoginLoading(): Observable<boolean> {
     return this.loginLoading.asObservable();
+  }
+
+  public getRegisterLoading(): Observable<boolean> {
+    return this.registerLoading.asObservable();
   }
 
   public getLogoutLoading(): Observable<boolean> {

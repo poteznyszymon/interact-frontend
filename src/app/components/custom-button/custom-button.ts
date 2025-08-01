@@ -45,6 +45,7 @@ export class CustomButton {
   @Input() iconButton = false;
   @Input() tooltipText: string | null = null;
   @Input() size: 'default' | 'small' = 'default';
+  @Input() formType: 'button' | 'reset' | 'submit' = 'button';
 
   tooltipVisible = false;
 

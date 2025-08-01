@@ -1,0 +1,83 @@
+<div class="container">
+  <form class="card" [formGroup]="registerForm">
+    <div class="header">
+      <h3>Register you account</h3>
+      <p>Enter your details to register your account</p>
+    </div>
+    <app-auth-provider-block
+      (click)="registerWithGoogle()"
+    ></app-auth-provider-block>
+    <app-divider></app-divider>
+    <div class="grid">
+      <div class="column">
+        <app-input-component
+          formControlName="firstName"
+          labelText="First name"
+          placeholder="First Name"
+        ></app-input-component>
+        @if (firstName.invalid && firstName.touched) { @if
+        (firstName.errors?.['required']) {
+        <p class="form-error">First name is required</p>
+        } }
+      </div>
+      <div class="column">
+        <app-input-component
+          formControlName="lastName"
+          labelText="Last name"
+          placeholder="Last Name"
+        ></app-input-component>
+        @if (lastName.invalid && lastName.touched) { @if
+        (lastName.errors?.['required']) {
+        <p class="form-error">Last name is required</p>
+        } }
+      </div>
+    </div>
+    <div class="grid">
+      <div class="column">
+        <app-input-component
+          formControlName="username"
+          labelText="Username"
+          placeholder="Username"
+        ></app-input-component>
+        @if (username.invalid && username.touched) { @if
+        (username.errors?.['required']) {
+        <p class="form-error">Username is required</p>
+        } }
+      </div>
+      <div class="column">
+        <app-input-component
+          formControlName="email"
+          labelText="Email"
+          placeholder="Email"
+        ></app-input-component>
+        @if (email.invalid && email.touched) { @if (email.errors?.['required'])
+        {
+        <p class="form-error">Email is required</p>
+        }@if (email.errors?.['email']) {
+        <p class="form-error">Invalid email format</p>
+        } }
+      </div>
+    </div>
+    <div class="column">
+      <app-input-component
+        formControlName="password"
+        labelText="Password"
+        placeholder="Password"
+        [passwordSwitch]="true"
+      ></app-input-component>
+      @if (password.invalid && password.touched) { @if
+      (password.errors?.['required']) {
+      <p class="form-error">Password is required</p>
+      } }
+    </div>
+    <app-custom-button
+      [loading]="(registerLoading$ | async) ?? false"
+      (click)="handleLogin()"
+      >Register</app-custom-button
+    >
+    <div class="bottom-prompt">
+      <p>Already have an account?</p>
+      <a routerLink="/login">Sign Up</a>
+    </div>
+  </form>
+</div>

@@ -1,17 +1,18 @@
 import { Component, inject } from '@angular/core';
-import { CustomButton } from '../../components/custom-button/custom-button';
-import { InputComponent } from '../../components/input-component/input-component';
-import { AuthProviderBlock } from '../../components/auth-provider-block/auth-provider-block';
-import { Divider } from '../../components/divider/divider';
+import { CustomButton } from '../../../components/custom-button/custom-button';
+import { InputComponent } from '../../../components/input-component/input-component';
+import { AuthProviderBlock } from '../../../components/auth-provider-block/auth-provider-block';
+import { Divider } from '../../../components/divider/divider';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../service/auth/auth-service';
+import { AuthService } from '../../../service/auth/auth-service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { environment } from '../../../../environments/environments';
 
 @Component({
   selector: 'app-login-page',
@@ -25,7 +26,7 @@ import { Router, RouterLink } from '@angular/router';
     RouterLink,
   ],
   templateUrl: './login-page.html',
-  styleUrl: './login-page.css',
+  styleUrls: ['./login-page.css', '../auth.css'],
 })
 export class LoginPage {
   authService = inject(AuthService);
@@ -36,8 +37,11 @@ export class LoginPage {
     password: new FormControl('', [Validators.required]),
   });
 
+  loginWithGoogle() {
+    window.location.href = environment.googleAuthUrl;
+  }
+
   async handleLogin(event: Event) {
-    event.preventDefault();
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;

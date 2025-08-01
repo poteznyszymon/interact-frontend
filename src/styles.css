@@ -105,4 +105,8 @@ a {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.527 0.154 150.069);
+
+  img {
+    filter: invert(100%) contrast(1.1) brightness(0.9);
+  }
 }
