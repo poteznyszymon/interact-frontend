@@ -4,7 +4,9 @@
       <h3>Login to your account</h3>
       <p>Enter your email below to login to your account</p>
     </div>
-    <app-auth-provider-block></app-auth-provider-block>
+    <app-auth-provider-block
+      (click)="loginWithGoogle()"
+    ></app-auth-provider-block>
     <app-divider></app-divider>
     <app-input-component
       formControlName="username"
@@ -26,13 +28,14 @@
     <p class="form-error">Password is required</p>
     } }
     <app-custom-button
+      [formType]="'submit'"
       [loading]="(loginLoading$ | async) ?? false"
       (click)="handleLogin($event)"
       >Login</app-custom-button
     >
     <div class="bottom-prompt">
       <p>Don't have an account?</p>
-      <a routerLink="/register">Sign up</a>
+      <a routerLink="/register">Sign In</a>
     </div>
   </form>
 </div>

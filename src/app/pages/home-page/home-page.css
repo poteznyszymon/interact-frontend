@@ -1,0 +1,50 @@
+.container {
+  padding-top: 3.5rem; /* Adjust for fixed navbar height */
+  height: 120vh;
+  width: 100%;
+  color: var(--foreground);
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.card {
+  max-width: 25rem;
+  width: 100%;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+dialog[open] {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 200ms ease-in-out, translate 200ms ease-in-out;
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 -2vh;
+  }
+}
+
+dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}

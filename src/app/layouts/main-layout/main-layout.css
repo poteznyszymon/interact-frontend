@@ -1,0 +1,12 @@
+.navbar {
+  background-color: var(--background) !important;
+}
+
+.scrolled {
+  border-bottom: 1px solid var(--border);
+
+  &.navbar {
+    background-color: var(--card) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+}

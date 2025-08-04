@@ -1,11 +1,13 @@
 <div class="auth-layout">
   <div class="navbar">
     <div class="navbar-content">
+      <div class="img-wrapper">
+        <img src="assets/logo.png" alt="" />
+      </div>
       <app-custom-button
         (click)="handleThemeChange()"
         [type]="'outline'"
         [iconButton]="true"
-        [tooltipText]="'Toggle'"
         ><lucide-angular
           size="15"
           [img]="isDarkTheme ? sunIcon : moonIcon"

@@ -10,7 +10,6 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideOAuthClient } from 'angular-oauth2-oidc';
 import { AuthService } from './service/auth/auth-service';
 
 export const appConfig: ApplicationConfig = {
@@ -20,7 +19,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    provideOAuthClient(),
     provideAppInitializer(() => inject(AuthService).fetchCurrentUser()),
   ],
 };

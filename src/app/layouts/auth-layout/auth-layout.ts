@@ -8,7 +8,7 @@ import { Sun, LucideAngularModule, Moon } from 'lucide-angular';
   selector: 'app-auth-layout',
   imports: [RouterOutlet, CustomButton, LucideAngularModule],
   templateUrl: './auth-layout.html',
-  styleUrl: './auth-layout.css',
+  styleUrls: ['./auth-layout.css', '../layouts.css'],
 })
 export class AuthLayout {
   private themeService: ThemeService = inject(ThemeService);

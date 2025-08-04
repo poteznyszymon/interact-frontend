@@ -1,0 +1,28 @@
+<div class="auth-layout">
+  <div class="navbar" [class.scrolled]="scrolled">
+    <div class="navbar-content">
+      <a routerLink="/" class="img-wrapper">
+        <img src="assets/logo.png" alt="" />
+      </a>
+      <div style="display: flex; align-items: center; gap: 0.5rem">
+        <app-custom-button
+          [type]="'link'"
+          (click)="logout()"
+          [loading]="(logoutLoading$ | async) ?? false"
+          >logout</app-custom-button
+        >
+        <app-custom-button
+          [size]="'small'"
+          (click)="handleThemeChange()"
+          [type]="'outline'"
+          [iconButton]="true"
+          ><lucide-angular
+            size="15"
+            [img]="isDarkTheme ? sunIcon : moonIcon"
+          ></lucide-angular
+        ></app-custom-button>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

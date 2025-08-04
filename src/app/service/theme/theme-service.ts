@@ -16,9 +16,13 @@ export class ThemeService {
   }
 
   public toggleTheme(): void {
-    document.body.classList.toggle(this.dark);
-    const isDark = document.body.classList.contains(this.dark);
-    localStorage.setItem('theme', isDark ? this.dark : this.light);
+    requestAnimationFrame(() => {
+      document.startViewTransition(() => {
+        document.body.classList.toggle(this.dark);
+        const isDark = document.body.classList.contains(this.dark);
+        localStorage.setItem('theme', isDark ? this.dark : this.light);
+      });
+    });
   }
 
   private loadInitalTheme(): void {
