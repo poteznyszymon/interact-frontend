@@ -1,6 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ThemeService } from '../../service/theme/theme-service';
-import { ChevronRight, LucideAngularModule, Moon, Sun } from 'lucide-angular';
+import {
+  ChevronRight,
+  ChevronsRight,
+  LucideAngularModule,
+  Moon,
+  Sun,
+} from 'lucide-angular';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../service/auth/auth-service';
 import { CommonModule } from '@angular/common';
@@ -29,5 +35,5 @@ export class MainLayout {
 
   isCollapsed$ = this.sidebarService.getIsCollapsed();
 
-  ChevronRight = ChevronRight;
+  ChevronsRight = ChevronsRight;
 }

@@ -4,7 +4,7 @@ import { ResizableModule, ResizeEvent } from 'angular-resizable-element';
 import { AuthService } from '../../service/auth/auth-service';
 import {
   ChevronDown,
-  ChevronLeft,
+  ChevronsLeft,
   FilePen,
   LucideAngularModule,
   Settings,
@@ -13,7 +13,6 @@ import { SidebarService } from '../../service/ui/sidebar-service';
 import { IconButton } from '../icon-button/icon-button';
 import { UserAvatar } from '../user-avatar/user-avatar';
 import { Router } from '@angular/router';
-import { CustomButton } from '../custom-button/custom-button';
 
 @Component({
   selector: 'app-side-bar-component',
@@ -71,7 +70,7 @@ export class SideBarComponent {
     localStorage.setItem('sidebar-width', this.width.toString());
   }
 
-  readonly ChevronLeft = ChevronLeft;
+  readonly ChevronsLeft = ChevronsLeft;
   readonly ChevronDown = ChevronDown;
   readonly FilePen = FilePen;
   readonly Settings = Settings;

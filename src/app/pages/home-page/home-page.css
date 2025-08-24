@@ -7,3 +7,7 @@
   align-items: center;
   justify-content: center;
 }
+
+button {
+  color: var(--foreground);
+}

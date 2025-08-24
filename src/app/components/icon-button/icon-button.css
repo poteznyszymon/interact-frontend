@@ -17,8 +17,8 @@ button {
 .tooltip-container {
   position: absolute;
 
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: var(--tooltip);
+  color: white;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.4rem 0.5rem;

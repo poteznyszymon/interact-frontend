@@ -48,6 +48,7 @@ mwlResizable {
 }
 
 .sidebar-header-content {
+  color: var(--foreground);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -99,9 +100,10 @@ mwlResizable {
 
 .header-dropdown {
   position: absolute;
-  top: 2.3rem;
-  width: 95%;
-  background-color: var(--background);
+  top: 2.6rem;
+  left: 0;
+  width: 99.5%;
+  background-color: var(--dropdown);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   visibility: hidden;
