@@ -1,0 +1,69 @@
+<div
+  mwlResizable
+  [enableGhostResize]="true"
+  [ngStyle]="{ width: width + 'px' }"
+  (resizing)="resizing($event)"
+  class="sidebar-container"
+  [class.collapsed]="isCollapsed$ | async"
+>
+  <div
+    class="resize-handle-right"
+    mwlResizeHandle
+    [resizeEdges]="{ right: true }"
+  ></div>
+  @if (user$ | async; as user) {
+  <div class="sidebar-content">
+    <div class="sidebar-header" (click)="toggleDropdown()">
+      <button class="sidebar-header-content">
+        <app-user-avatar [user]="user"></app-user-avatar>
+        <div class="username-wrapper">
+          <p>{{ user.firstName }}'s Interact</p>
+          <lucide-angular size="18" [img]="ChevronDown"></lucide-angular>
+        </div>
+        <div class="header-buttons">
+          <app-icon-button
+            [icon]="ChevronLeft"
+            (click)="toggleSidebar($event)"
+            class="close-sidebar-button"
+            tooltipTitle="Close sidebar"
+            tooltipSubTitle="Ctrl+\"
+            tooltipPosition="bottom"
+          ></app-icon-button>
+          <app-icon-button
+            [icon]="FilePen"
+            tooltipTitle="Create a new page"
+            tooltipPosition="right"
+            (click)="$event.stopPropagation()"
+          ></app-icon-button>
+        </div>
+        <div
+          class="header-dropdown"
+          [class.open]="dropdownOpen()"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="dropdown-header">
+            <app-user-avatar [size]="2" [user]="user"></app-user-avatar>
+            <div style="display: flex; flex-direction: column">
+              <p>{{ user.firstName }}'s Interact</p>
+              <p class="member-since">
+                Since {{ user.createdAt | date : "longDate" }}
+              </p>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <button class="dropdown-button">
+              <lucide-angular size="16" [img]="Settings"></lucide-angular>
+              <p>Settings</p>
+            </button>
+          </div>
+          <div class="divider"></div>
+          <div class="dropdown-content">
+            <p>{{ user.email }}</p>
+            <button (click)="logout()">Log out</button>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  }
+</div>

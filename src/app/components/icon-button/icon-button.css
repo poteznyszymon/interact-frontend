@@ -1,0 +1,65 @@
+button {
+  height: 2rem;
+  width: 2rem;
+  color: var(--muted-foreground);
+  border-radius: var(--radius);
+  position: relative;
+
+  &:hover {
+    background-color: var(--hover);
+    .tooltip-container {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.tooltip-container {
+  position: absolute;
+
+  background-color: var(--foreground);
+  color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.5rem;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  white-space: nowrap;
+  text-align: start;
+  pointer-events: none;
+
+  & .title {
+    font-size: 0.75rem;
+  }
+
+  & .subtitle {
+    color: var(--muted-foreground);
+    font-size: 0.7rem;
+  }
+
+  &.bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.right {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+  }
+
+  &.left {
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+  }
+}

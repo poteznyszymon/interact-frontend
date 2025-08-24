@@ -1,28 +1,22 @@
-<div class="auth-layout">
-  <div class="navbar" [class.scrolled]="scrolled">
-    <div class="navbar-content">
-      <a routerLink="/" class="img-wrapper">
-        <img src="assets/logo.png" alt="" />
-      </a>
-      <div style="display: flex; align-items: center; gap: 0.5rem">
-        <app-custom-button
-          [type]="'link'"
-          (click)="logout()"
-          [loading]="(logoutLoading$ | async) ?? false"
-          >logout</app-custom-button
-        >
-        <app-custom-button
-          [size]="'small'"
-          (click)="handleThemeChange()"
-          [type]="'outline'"
-          [iconButton]="true"
-          ><lucide-angular
-            size="15"
-            [img]="isDarkTheme ? sunIcon : moonIcon"
-          ></lucide-angular
-        ></app-custom-button>
-      </div>
-    </div>
+<main class="main-layout">
+  <app-side-bar-component #sidebar></app-side-bar-component>
+  <div
+    class="router-flex"
+    [ngStyle]="{
+      'margin-left': (isCollapsed$ | async) ? '0px' : sidebar.width + 'px',
+      transition: 'margin-left 0.3s ease'
+    }"
+  >
+    <router-outlet></router-outlet>
+    <button class="sidebar-open" (click)="sidebarService.toggle()">
+      @if (isCollapsed$ | async) {
+      <app-icon-button
+        [icon]="ChevronRight"
+        tooltipTitle="Open sidebar"
+        tooltipSubTitle="Ctrl+\"
+        tooltipPosition="right"
+      ></app-icon-button>
+      }
+    </button>
   </div>
-  <router-outlet></router-outlet>
-</div>
+</main>

@@ -20,6 +20,8 @@ input:focus-visible {
 
 button {
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 lucide-angular {
@@ -39,7 +41,7 @@ a {
 }
 
 :root {
-  --radius: 0.65rem;
+  --radius: 0.4rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -50,10 +52,12 @@ a {
   --primary-foreground: oklch(0.982 0.018 155.826);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
+  --muted: rgb(249, 248, 246);
+  --muted-hover: rgb(241, 240, 238);
   --muted-foreground: oklch(0.552 0.016 285.938);
   --accent: oklch(0.967 0.001 286.375);
   --accent-foreground: oklch(0.21 0.006 285.885);
+  --hover: rgb(0, 0, 0, 0.03);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);

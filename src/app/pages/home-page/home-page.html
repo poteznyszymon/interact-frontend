@@ -1,14 +1,5 @@
-<div class="container">
-  <div class="card" *ngIf="user$ | async as user">
-    <p>uuid: {{ user.uuid }}</p>
-    <p>username: {{ user.username }}</p>
-    <p>first name: {{ user.firstName }}</p>
-    <p>last name: {{ user.lastName }}</p>
-    <p>email : {{ user.email }}</p>
-    <p>created at: {{ user.createdAt | date }}</p>
-  </div>
-  <dialog #dialog>
-    <p>dialog test</p>
-    <button (click)="closeDialog()">close</button>
-  </dialog>
+<div class="home-container">
+  <p>{{ isCollapsed$ | async }}</p>
+  <button (click)="sidebarService.toggle()">toggle</button>
+  <button (click)="onLogout()">Logout</button>
 </div>

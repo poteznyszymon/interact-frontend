@@ -1,12 +1,22 @@
-.navbar {
-  background-color: var(--background) !important;
+.main-layout {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background-image: radial-gradient(circle, var(--muted) 2px, transparent 2px);
+  background-size: 20px 20px;
 }
 
-.scrolled {
-  border-bottom: 1px solid var(--border);
+.router-flex {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  margin-left: 20rem;
+}
 
-  &.navbar {
-    background-color: var(--card) !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  }
+.sidebar-open {
+  position: fixed;
+  left: 0.5rem;
+  top: 0.5rem;
 }

@@ -1,0 +1,9 @@
+<button>
+  <lucide-angular [img]="icon" size="18"></lucide-angular>
+  @if (tooltipTitle) {
+  <div class="tooltip-container" [ngClass]="tooltipPosition">
+    <p class="title">{{ tooltipTitle }}</p>
+    <p class="subtitle">{{ tooltipSubTitle }}</p>
+  </div>
+  }
+</button>
